@@ -25,10 +25,7 @@ jobs:
 
     - name: Sync files to S3
       uses: aws-actions/s3-sync-action@v0.5.1
-      with:
-        bucket: ${{ secrets.S3_BUCKET_NAME }}  # Your S3 bucket name, set as a secret
-        region: 'us-east-1'  # Your bucket's region
-        source-dir: 'dist'  # The folder to upload (React app build directory)
+      run: aws s3 sync dist s3://${{ secrets.S3_BUCKET_NAME }} --delete
     
     - name: Invalidate CloudFront cache
       uses: chetan/invalidate-cloudfront-action@v1.5
