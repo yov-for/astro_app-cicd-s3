@@ -36,7 +36,7 @@ jobs:
 
     
     - name: Invalidate CloudFront cache
-      uses: chetan/invalidate-cloudfront-action@v1.5
+      uses: chetan/invalidate-cloudfront-action@v2
       with:
         distribution-id: ${{ secrets.CLOUDFRONT_DIST_ID }}  # Set your CloudFront ID as a secret
         paths: '/*'
